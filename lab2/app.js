@@ -10,19 +10,21 @@ articleForm.addEventListener("submit", function(event) {
     const title=articleTitle.value.trim();
     const content=articleContent.value.trim();
 
-    if(title===""||content===""){
+    if(!title||!content){
         alert("Заполните название и содержание статьи.");
         return;
     }
     const articleItem=document.createElement("li");
+    const article=document.createElement("article");
     const articleHeading=document.createElement("h3");
     const articleText=document.createElement("p");
 
     articleHeading.textContent=title;
     articleText.textContent=content;
 
-    articleItem.appendChild(articleHeading);
-    articleItem.appendChild(articleText);
+    article.appendChild(articleHeading);
+    article.appendChild(articleText);
+    articleItem.appendChild(article);
     articleList.appendChild(articleItem);
 
     articleTitle.value = "";
@@ -38,14 +40,16 @@ fetchPostButton.addEventListener("click", function() {
         apiPosts.innerHTML = "";
         posts.forEach(post => {
             const postItem = document.createElement("li");
+            const postArticle=document.createElement("article");
             const postTitle = document.createElement("h3");
             const postBody = document.createElement("p");
 
             postTitle.textContent = post.title;
             postBody.textContent = post.body;
 
-            postItem.appendChild(postTitle);
-            postItem.appendChild(postBody);
+            postArticle.appendChild(postTitle);
+            postArticle.appendChild(postBody);
+            postItem.appendChild(postArticle);
             apiPosts.appendChild(postItem);
         });
     });
