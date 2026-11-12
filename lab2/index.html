@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Моя вики</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Моя вики</h1>
+
+        </header>
+
+        <main>
+            <section>
+                <h2>Написать статью</h2>
+                <form id="article-form">
+                    <label for="article-title">Название статьи:</label>
+                    <input type="text" id="article-title" placeholder="Введите название статьи" required>
+
+                    <label for="article-content">Содержание статьи:</label>
+                    <textarea id="article-content" placeholder="Введите содержание статьи" required></textarea>
+
+                    <button type="submit">Сохранить статью</button>
+                </form>
+            </section>
+
+            <section>
+                <h2>Список статей</h2>
+                <ul id="article-list">
+                </ul>
+            </section>
+
+            <section>
+                <h2>API Posts</h2>
+                <button id="fetch-posts">Загрузить посты из API</button>
+            <ul id="api-posts"></ul>
+            </section>
+        </main>
+    </body>
+</html>
